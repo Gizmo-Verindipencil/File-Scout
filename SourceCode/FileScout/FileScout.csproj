@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D7AC15B-2D75-4B1B-BEC6-C3EAD67539AB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FileScout</RootNamespace>
+    <AssemblyName>FileScout</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clue.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Interfaces\IScoutingMethod.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ScoutingMethods\NumberOfComInstanceCreationScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PublicReferencesToProcedureImplementedInExternalFileScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PrivateReferencesToProcedureImplementedInExternalFileScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PublicFunctionProceduresScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PrivateFunctionProceduresScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PublicSubProceduresScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6PrivateSubProceduresScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6CommentRowsScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfEmptyRowsScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfRowsScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfBlanksScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\HashSHA256ScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\TextLengthScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\ExtensionScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\ByteLengthScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NameScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\ParentDirectoryScoutingMethod.cs" />
+    <Compile Include="Scouts\FullScout.cs" />
+    <Compile Include="Scouts\HashScout.cs" />
+    <Compile Include="Scouts\ComUsageScout.cs" />
+    <Compile Include="Scouts\VolumeScout.cs" />
+    <Compile Include="Scouts\TextScout.cs" />
+    <Compile Include="Scouts\OldVbScout.cs" />
+    <Compile Include="Scouts\BaseScout.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
