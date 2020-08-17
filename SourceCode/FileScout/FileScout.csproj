@@ -61,6 +61,8 @@
     <Compile Include="ScoutingMethods\NumberOfRowsScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfBlanksScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\HashSHA256ScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\RowTextLengthStandardDeviationScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\RowTextLengthAverageScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\TextLengthScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\ExtensionScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\ByteLengthScoutingMethod.cs" />
