@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7D7AC15B-2D75-4B1B-BEC6-C3EAD67539AB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>FileScout</RootNamespace>
     <AssemblyName>FileScout</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -32,9 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +80,12 @@
     <Compile Include="Scouts\TextScout.cs" />
     <Compile Include="Scouts\OldVbScout.cs" />
     <Compile Include="Scouts\BaseScout.cs" />
+    <Compile Include="UI\ChoosingScoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ChoosingScoutForm.Designer.cs">
+      <DependentUpon>ChoosingScoutForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

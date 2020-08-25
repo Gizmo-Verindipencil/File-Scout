@@ -1,18 +1,20 @@
-﻿using FileScout.Scouts;
-using System.IO;
-using System.Reflection;
-using System.Text;
+﻿using FileScout.UI;
+using System;
+using System.Windows.Forms;
 
 namespace FileScout
 {
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// アプリケーションのメイン エントリ ポイントです。
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            var scout = new FullScout();
-            var target = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            var result = scout.Scout(target);
-            File.WriteAllText(Path.Combine(target, "result.csv"), result, Encoding.UTF8);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new ChoosingScoutForm());
         }
     }
 }

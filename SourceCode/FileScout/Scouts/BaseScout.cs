@@ -8,14 +8,14 @@ using System.Reflection;
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// 基本的な斥候。
+    /// 斥候。
     /// </summary>
     public abstract class BaseScout
     {
         /// <summary>
         /// 調査手段。
         /// </summary>
-        protected Dictionary<string, IScoutingMethod> Methods = new Dictionary<string, IScoutingMethod>();
+        public Dictionary<string, IScoutingMethod> Methods { get; set; } = new Dictionary<string, IScoutingMethod>();
 
         /// <summary>
         /// コンストラクタ。
@@ -24,8 +24,8 @@ namespace FileScout.Scouts
         {
             /// 調査項目の定義
             Methods.Add(key: "ディレクトリ", value: new ParentDirectoryScoutingMethod());
-            Methods.Add(key: "ファイル",     value: new NameScoutingMethod());
-            Methods.Add(key: "拡張子",       value: new ExtensionScoutingMethod());
+            Methods.Add(key: "ファイル", value: new NameScoutingMethod());
+            Methods.Add(key: "拡張子", value: new ExtensionScoutingMethod());
         }
 
         /// <summary>
@@ -36,12 +36,13 @@ namespace FileScout.Scouts
         public string Scout(string path)
         {
             // ファイル毎の調査
-            var report = new Report() {
+            var report = new Report()
+            {
                 Columns = Methods.Keys.ToList<string>()
             };
             AppendToReport(path, report);
 
-            // 偵察結果を通知
+            // 報告を通知
             return report.ToString();
         }
 
@@ -63,23 +64,36 @@ namespace FileScout.Scouts
                 var clue = Clue.Generate(path);
                 var results = new List<string>();
 
-                foreach (var column in report.Columns)
+                foreach (var header in report.Columns)
                 {
-                    var result = Methods[column].Do(clue);
+                    var result = Methods[header].Do(clue);
                     results.Add(result);
                 }
                 report.Rows.Add(results);
                 return;
             }
 
+            // 偵察対象パスの取得
+            string[] files;
+            string[] directories;
+            try
+            {
+                files = Directory.GetFiles(path);
+                directories = Directory.GetDirectories(path);
+            }
+            catch (PathTooLongException)
+            {
+                throw new PathTooLongException($"長すぎるパスです。\n{path}");
+            }
+
             // ディレクトリ内のファイルを偵察
-            foreach (var file in Directory.GetFiles(path))
+            foreach (var file in files)
             {
                 AppendToReport(file, report);
             }
 
             // ディレクトリ内のディレクトリの偵察
-            foreach (var dir in Directory.GetDirectories(path))
+            foreach (var dir in directories)
             {
                 AppendToReport(dir, report);
             }
