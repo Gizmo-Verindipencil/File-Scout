@@ -14,6 +14,9 @@ namespace FileScout.ScoutsingMethods
         public string Do(Clue clue)
         {
             var text = File.ReadLines(clue.FilePath, clue.Encoding);
+            if (text.Count() == 0) return "0";
+
+            // 文字数の平均を算出
             var average = text
                 .Select(x => x.Length)
                 .Average();

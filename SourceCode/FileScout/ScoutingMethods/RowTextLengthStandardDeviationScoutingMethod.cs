@@ -13,6 +13,7 @@ namespace FileScout.ScoutsingMethods
         public string Do(Clue clue)
         {
             var text = File.ReadLines(clue.FilePath, clue.Encoding);
+            if (text.Count() == 0) return "0";
             return text
                 .Select(x => x.Length)
                 .Average().ToString();
