@@ -49,12 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clue.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interfaces\IScoutingMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ScoutingMethods\NumberOfComInstanceCreationScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6CommentRowsInProcedureScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6EmptyRowsInProcedureScoutingMethod.cs" />
+    <Compile Include="ScoutingMethods\NumberOfVB6ProcedureRowsScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6PublicReferencesToProcedureImplementedInExternalFileScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6PrivateReferencesToProcedureImplementedInExternalFileScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6PublicFunctionProceduresScoutingMethod.cs" />
