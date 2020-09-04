@@ -5,7 +5,7 @@ namespace FileScout.Extensions
     /// <summary>
     /// <see cref="string"/>の拡張メソッド。
     /// </summary>
-    public static class StringExtension
+    public static class StringExtensions
     {
         /// <summary>
         /// 指定した文字列が出現する回数をカウントする。
