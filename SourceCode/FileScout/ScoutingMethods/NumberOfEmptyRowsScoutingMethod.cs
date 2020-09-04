@@ -14,7 +14,7 @@ namespace FileScout.ScoutsingMethods
         public string Do(Clue clue)
         {
             var text = File.ReadLines(clue.FilePath, clue.Encoding);
-            var blanks = new string[] { " ", "　" };
+            var blanks = new string[] { " ", "　", "\t" };
             return text
                 .Where(x => x.RemoveString(blanks).Length == 0)
                 .Count().ToString();

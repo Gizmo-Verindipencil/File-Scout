@@ -19,7 +19,7 @@ namespace FileScout.ScoutsingMethods
             foreach (var row in text)
             {
                 var targets = new string[] { "public function ", "function " };
-                var blanks = new char[] { ' ', '　' };
+                var blanks = new char[] { ' ', '　', '\t' };
                 var head = row.TrimStart(blanks);
 
                 foreach (var target in targets)
