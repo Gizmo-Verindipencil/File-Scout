@@ -32,10 +32,10 @@ namespace FileScout.Extensions
         /// <returns>削除された文字列。</returns>
         public static string RemoveString(this string self, params string[] remove)
         {
-            string result = string.Empty;
+            string result = self;
             foreach (var value in remove)
             {
-                result = self.Replace(value, String.Empty);
+                result = result.Replace(value, String.Empty);
             }
             return result;
         }
