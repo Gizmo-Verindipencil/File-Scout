@@ -76,6 +76,7 @@
     <Compile Include="ScoutingMethods\ByteLengthScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NameScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\ParentDirectoryScoutingMethod.cs" />
+    <Compile Include="Scouts\SimplestScout.cs" />
     <Compile Include="Scouts\FullScout.cs" />
     <Compile Include="Scouts\HashScout.cs" />
     <Compile Include="Scouts\ComUsageScout.cs" />
