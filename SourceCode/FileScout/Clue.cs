@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using FileScout.EncodingDetectors;
+using FileScout.Interfaces;
+using System.Text;
 
 namespace FileScout
 {
@@ -18,18 +20,23 @@ namespace FileScout
         public Encoding Encoding { get; set; }
 
         /// <summary>
+        /// バイナリファイルであるかどうかを示す。
+        /// </summary>
+        public bool IsBinary { get => Encoding == null; }
+
+        /// <summary>
         /// 手掛かりを生成する。
         /// </summary>
         /// <param name="filePath">ファイルパス。</param>
+        /// <param name="encodingDetector">文字エンコード検出。</param>
         /// <returns>手掛かり。</returns>
-        public static Clue Generate(string filePath)
+        public static Clue Generate(string filePath, IEncodingDetector detector = null)
         {
             return
                 new Clue
                 {
                     FilePath = filePath,
-                    // ToDo : ファイルエンコーディングの自動判定
-                    Encoding = Encoding.GetEncoding("Shift_JIS")
+                    Encoding = detector.Detect(filePath)
                 };
         }
     }

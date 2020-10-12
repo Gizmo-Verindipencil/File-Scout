@@ -1,6 +1,6 @@
 ﻿using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// VB6のプロシージャ内のコメント行数の偵察手段。

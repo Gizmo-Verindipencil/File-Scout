@@ -1,4 +1,4 @@
-﻿using FileScout.ScoutsingMethods;
+﻿using FileScout.ScoutingMethods;
 
 namespace FileScout.Scouts
 {

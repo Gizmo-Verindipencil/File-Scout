@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// ファイルハッシュ(SHA-256)の偵察手段。

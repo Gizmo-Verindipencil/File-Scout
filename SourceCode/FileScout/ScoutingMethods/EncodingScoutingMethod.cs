@@ -4,15 +4,15 @@ using FileScout.Interfaces;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// バイト長の偵察手段。
+    /// 拡張子の偵察手段。
     /// </summary>
-    public class ByteLengthScoutingMethod : IScoutingMethod
+    public class ExtensionScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
         public string Do(Clue clue)
         {
             var info = new FileInfo(clue.FilePath);
-            return info.Length.ToString();
+            return info.Extension;
         }
     }
 }

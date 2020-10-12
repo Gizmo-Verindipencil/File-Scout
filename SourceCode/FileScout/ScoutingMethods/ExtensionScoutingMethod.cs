@@ -1,18 +1,17 @@
-﻿using System.IO;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 拡張子の偵察手段。
+    /// 文字エンコードの偵察手段。
     /// </summary>
-    public class ExtensionScoutingMethod : IScoutingMethod
+    public class EncodingScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
         public string Do(Clue clue)
         {
-            var info = new FileInfo(clue.FilePath);
-            return info.Extension;
+            if (clue.Encoding == null) return "unknown";
+            return clue.Encoding.WebName;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// VB6のプロシージャ行数の偵察手段。
@@ -23,6 +23,9 @@ namespace FileScout.ScoutsingMethods
         /// <returns>プロシージャの行。</returns>
         public static IEnumerable<string> GetProcedureRows(Clue clue)
         {
+            // バイナリファイルの場合は終了
+            if (clue.IsBinary) yield break;
+
             // 対象フラグ
             var diggingSub = false;
             var diggingFnc = false;
