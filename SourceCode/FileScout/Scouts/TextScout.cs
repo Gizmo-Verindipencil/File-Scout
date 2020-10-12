@@ -1,4 +1,5 @@
-﻿using FileScout.ScoutsingMethods;
+﻿using FileScout.ScoutingMethods;
+using FileScout.ScoutingMethods;
 
 namespace FileScout.Scouts
 {
@@ -10,6 +11,7 @@ namespace FileScout.Scouts
         public TextScout()
         {
             /// 調査項目の定義
+            Methods.Add(key: "文字エンコード", value: new EncodingScoutingMethod());
             Methods.Add(key: "文字数", value: new TextLengthScoutingMethod());
             Methods.Add(key: "文字数(空白)", value: new NumberOfBlanksScoutingMethod());
             Methods.Add(key: "行数", value: new NumberOfRowsScoutingMethod());

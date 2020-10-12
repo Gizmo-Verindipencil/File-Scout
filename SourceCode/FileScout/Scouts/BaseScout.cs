@@ -1,5 +1,5 @@
 ﻿using FileScout.Interfaces;
-using FileScout.ScoutsingMethods;
+using FileScout.ScoutingMethods;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

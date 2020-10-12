@@ -2,7 +2,7 @@
 using FileScout.Interfaces;
 using System.Linq;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// VB6のプロシージャ空行数の偵察手段。

@@ -36,6 +36,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hnx8.ReadJEnc, Version=1.3.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReadJEnc.1.3.1.2\lib\net46\Hnx8.ReadJEnc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -49,11 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clue.cs" />
+    <Compile Include="EncodingDetector\ReadJEncEncodingDetector.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interfaces\IEncodingDetector.cs" />
     <Compile Include="Interfaces\IScoutingMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
+    <Compile Include="ScoutingMethods\EncodingScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfComInstanceCreationScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6CommentRowsInProcedureScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6EmptyRowsInProcedureScoutingMethod.cs" />
@@ -93,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

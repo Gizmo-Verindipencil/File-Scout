@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// ファイル名の偵察手段。

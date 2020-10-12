@@ -2,7 +2,7 @@
 using System.IO;
 using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// VB6のFunctionプロシージャ―（Public）数の偵察手段。
@@ -12,9 +12,10 @@ namespace FileScout.ScoutsingMethods
         /// <inheritdoc/>
         public string Do(Clue clue)
         {
-            var text = File.ReadLines(clue.FilePath, clue.Encoding);
-            var newLine = new string[] { Environment.NewLine };
+            // バイナリファイルの場合は処理なし
+            if (clue.IsBinary) return "0";
 
+            var text = File.ReadLines(clue.FilePath, clue.Encoding);
             int count = 0;
             foreach (var row in text)
             {

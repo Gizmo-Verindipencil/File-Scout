@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using FileScout.Interfaces;
 
-namespace FileScout.ScoutsingMethods
+namespace FileScout.ScoutingMethods
 {
     /// <summary>
     /// COMオブジェクトのインスタンス生成回数の偵察手段。
@@ -28,6 +28,9 @@ namespace FileScout.ScoutsingMethods
         /// <returns>偵察結果。</returns>
         protected string Do(Clue clue, string comObjectName)
         {
+            // バイナリファイルの場合は処理なし
+            if (clue.IsBinary) return "0";
+
             const string patternHead = @"\s*=\s*(WScript\.){0,1}CreateObject\(\s*""";
             const string patternTail = @"""\s*\)";
             var pattern = patternHead + Regex.Escape(ComObjectName) + patternTail;
