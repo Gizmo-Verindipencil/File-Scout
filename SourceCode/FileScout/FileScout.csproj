@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clue.cs" />
-    <Compile Include="EncodingDetector\ReadJEncEncodingDetector.cs" />
+    <Compile Include="EncodingDetectors\ReadJEncEncodingDetector.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interfaces\IEncodingDetector.cs" />
     <Compile Include="Interfaces\IScoutingMethod.cs" />
