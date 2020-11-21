@@ -1,5 +1,4 @@
-﻿using FileScout.EncodingDetectors;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
 using System.Text;
 
 namespace FileScout
