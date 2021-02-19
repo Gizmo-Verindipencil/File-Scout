@@ -35,7 +35,7 @@ namespace FileScout
                 new Clue
                 {
                     FilePath = filePath,
-                    Encoding = detector.Detect(filePath)
+                    Encoding = detector?.Detect(filePath)
                 };
         }
     }

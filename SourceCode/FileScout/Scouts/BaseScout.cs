@@ -1,4 +1,5 @@
-﻿using FileScout.Interfaces;
+﻿using FileScout.EncodingDetectors;
+using FileScout.Interfaces;
 using FileScout.ScoutingMethods;
 using System.Collections.Generic;
 using System.IO;
@@ -61,7 +62,7 @@ namespace FileScout.Scouts
                     return;
                 }
 
-                var clue = Clue.Generate(path);
+                var clue = Clue.Generate(path, new ReadJEncEncodingDetector());
                 var results = new List<string>();
 
                 foreach (var header in report.Columns)
