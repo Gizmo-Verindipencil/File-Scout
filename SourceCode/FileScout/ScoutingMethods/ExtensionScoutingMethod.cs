@@ -8,7 +8,7 @@ namespace FileScout.ScoutingMethods
     public class EncodingScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             if (clue.Encoding == null) return "unknown";
             return clue.Encoding.WebName;

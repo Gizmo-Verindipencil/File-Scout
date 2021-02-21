@@ -9,7 +9,7 @@ namespace FileScout.ScoutingMethods
     public class ParentDirectoryScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             var info = new FileInfo(clue.FilePath);
             return info.DirectoryName;

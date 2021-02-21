@@ -1,12 +1,12 @@
 ﻿using FileScout.Interfaces;
 using System.Text;
 
-namespace FileScout
+namespace FileScout.DataObjects
 {
     /// <summary>
     /// 偵察の手掛かり。
     /// </summary>
-    public class Clue
+    public class ScoutingClue : IScoutingClue
     {
         /// <summary>
         /// ファイルのパス。
@@ -29,10 +29,10 @@ namespace FileScout
         /// <param name="filePath">ファイルパス。</param>
         /// <param name="encodingDetector">文字エンコード検出。</param>
         /// <returns>手掛かり。</returns>
-        public static Clue Generate(string filePath, IEncodingDetector detector = null)
+        public static ScoutingClue Generate(string filePath, IEncodingDetector detector = null)
         {
             return
-                new Clue
+                new ScoutingClue
                 {
                     FilePath = filePath,
                     Encoding = detector?.Detect(filePath)

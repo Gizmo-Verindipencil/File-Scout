@@ -10,7 +10,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfVB6PublicSubProceduresScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             // バイナリファイルの場合は処理なし
             if (clue.IsBinary) return "0";

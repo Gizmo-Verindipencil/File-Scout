@@ -15,7 +15,7 @@ namespace FileScout.ScoutingMethods
         public string ComObjectName { get; set; }
 
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             return Do(clue, ComObjectName);
         }
@@ -26,7 +26,7 @@ namespace FileScout.ScoutingMethods
         /// <param name="clue">手掛かり。</param>
         /// <param name="comObjectName">COMオブジェクト名。</param>
         /// <returns>偵察結果。</returns>
-        protected string Do(Clue clue, string comObjectName)
+        protected string Do(IScoutingClue clue, string comObjectName)
         {
             // バイナリファイルの場合は処理なし
             if (clue.IsBinary) return "0";

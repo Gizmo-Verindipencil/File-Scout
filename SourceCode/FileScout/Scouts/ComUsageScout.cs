@@ -13,7 +13,7 @@ namespace FileScout.Scouts
             void addMethod(string comObjectName)
             {
                 var method = new NumberOfComInstanceCreationScoutingMethod() { ComObjectName = comObjectName };
-                Methods.Add(key: $"COM({comObjectName})", value: method);
+                ScoutingMethod.Add(key: $"COM({comObjectName})", value: method);
             }
 
             /// 調査項目の定義

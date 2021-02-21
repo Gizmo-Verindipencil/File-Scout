@@ -10,6 +10,6 @@
         /// </summary>
         /// <param name="clue">手掛かり。</param>
         /// <returns>偵察結果。</returns>
-        string Do(Clue clue);
+        string Do(IScoutingClue clue);
     }
 }

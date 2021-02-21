@@ -156,7 +156,6 @@
             this.Opacity = 0.95D;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "FileScout";
-            this.Load += new System.EventHandler(this.ChoosingScout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MethodDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScoutDataGridView)).EndInit();
             this.ResumeLayout(false);

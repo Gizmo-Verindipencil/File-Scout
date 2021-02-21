@@ -10,7 +10,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfVB6EmptyRowsInProcedureScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             var text = NumberOfVB6ProcedureRowsScoutingMethod.GetProcedureRows(clue);
             var blanks = new string[] { " ", "　" };

@@ -1,4 +1,4 @@
-﻿using FileScout.Scouts;
+﻿using FileScout.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,40 +15,42 @@ namespace FileScout.UI
     /// </summary>
     public partial class ChoosingScoutForm : Form
     {
-        private Dictionary<string, BaseScout> scout =
+        private readonly Dictionary<string, IScout> _scout =
             Assembly.GetExecutingAssembly().GetTypes()
             .Where(x =>
-                string.Equals(x.Namespace, "FileScout.Scouts", StringComparison.Ordinal)
-                && x.IsSubclassOf(typeof(BaseScout))
-                && !x.IsAbstract)
-            .ToDictionary(x => x.Name, x => (BaseScout)Activator.CreateInstance(x));
+                string.Equals(x.Namespace, "FileScout.Scouts", StringComparison.Ordinal) &&
+                x.GetInterface("IScout") == typeof(IScout) &&
+                !x.IsAbstract
+            )
+            .ToDictionary(x => x.Name, x => (IScout)Activator.CreateInstance(x));
+
+        internal Dictionary<string, IScout> Scout => _scout;
 
         public ChoosingScoutForm()
         {
             InitializeComponent();
-        }
 
-        private void ChoosingScout_Load(object sender, EventArgs e)
-        {
-            var source = new BindingSource() { DataSource = scout.Keys.Select(x => new { Name = x }) };
+            var source = new BindingSource() { DataSource = _scout.Keys.Select(x => new { Name = x }) };
             ScoutDataGridView.DataSource = source;
         }
 
         private void ScoutDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (ScoutDataGridView.SelectedRows.Count == 0)
+            if (_scout.Count() == 0 ||
+                ScoutDataGridView.SelectedRows.Count == 0
+                )
             {
                 ExecuteButton.Enabled = false;
                 return;
             }
             ExecuteButton.Enabled = true;
 
-            var type = new { Name = "" };
-            dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
-            type = obj;
+            dynamic item = new { Name = "" };
+            item = ScoutDataGridView.SelectedRows[0].DataBoundItem;
 
-            NumberOfMethodsLabel.Text = scout[type.Name].Methods.Count().ToString("(0)");
-            var source = new BindingSource() { DataSource = scout[type.Name].Methods.Keys.Select(x => new { Name = x }) };
+            var scoutingMethod = (Dictionary<string, IScoutingMethod>)Scout[item.Name].ScoutingMethod;
+            NumberOfMethodsLabel.Text = scoutingMethod.Count.ToString("(0)");
+            var source = new BindingSource() { DataSource = scoutingMethod.Keys.Select(x => new { Name = x }) };
             MethodDataGridView.DataSource = source;
         }
 
@@ -73,15 +75,13 @@ namespace FileScout.UI
                 SaveResult(message);
                 return;
             }
-
-            var type = new { Name = "" };
+                
             dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
-            type = obj;
 
             string result;
             try
             {
-                result = scout[type.Name].Scout(TargetDirectoryTextBox.Text);
+                result = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
             }
             catch(PathTooLongException ex)
             {
@@ -103,7 +103,7 @@ namespace FileScout.UI
 
         private void SaveResult(string content)
         {
-            var fileName = $"result_{DateTime.Now.ToString("yyyyMMddhhmmss")}.csv";
+            var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";
             var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             File.WriteAllText(Path.Combine(path, fileName), content, Encoding.UTF8);
             MessageBox.Show($"{fileName} に結果を作成しました。");

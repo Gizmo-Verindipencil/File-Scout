@@ -10,7 +10,7 @@ namespace FileScout.Scouts
         public VolumeScout()
         {
             /// 調査項目の定義
-            Methods.Add(key: "バイト長", value: new ByteLengthScoutingMethod());
+            ScoutingMethod.Add(key: "バイト長", value: new ByteLengthScoutingMethod());
         }
     }
 }

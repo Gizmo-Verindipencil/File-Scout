@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FileScout.Interfaces;
+using System;
 using System.IO;
 using System.Security.Cryptography;
-using FileScout.Interfaces;
 
 namespace FileScout.ScoutingMethods
 {
@@ -11,7 +11,7 @@ namespace FileScout.ScoutingMethods
     public class HashSHA256ScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             using (var stream = new FileStream(clue.FilePath, FileMode.Open, FileAccess.Read))
             {

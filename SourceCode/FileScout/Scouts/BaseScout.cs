@@ -1,4 +1,5 @@
-﻿using FileScout.EncodingDetectors;
+﻿using FileScout.DataObjects;
+using FileScout.EncodingDetectors;
 using FileScout.Interfaces;
 using FileScout.ScoutingMethods;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace FileScout.Scouts
     /// <summary>
     /// 斥候。
     /// </summary>
-    public abstract class BaseScout
+    public abstract class BaseScout : IScout
     {
         /// <summary>
         /// 調査手段。
         /// </summary>
-        public Dictionary<string, IScoutingMethod> Methods { get; set; } = new Dictionary<string, IScoutingMethod>();
+        public Dictionary<string, IScoutingMethod> ScoutingMethod { get; set; } = new Dictionary<string, IScoutingMethod>();
 
         /// <summary>
         /// コンストラクタ。
@@ -24,22 +25,18 @@ namespace FileScout.Scouts
         public BaseScout()
         {
             /// 調査項目の定義
-            Methods.Add(key: "ディレクトリ", value: new ParentDirectoryScoutingMethod());
-            Methods.Add(key: "ファイル", value: new NameScoutingMethod());
-            Methods.Add(key: "拡張子", value: new ExtensionScoutingMethod());
+            ScoutingMethod.Add(key: "ディレクトリ", value: new ParentDirectoryScoutingMethod());
+            ScoutingMethod.Add(key: "ファイル", value: new NameScoutingMethod());
+            ScoutingMethod.Add(key: "拡張子", value: new ExtensionScoutingMethod());
         }
 
-        /// <summary>
-        /// ディレクトリを偵察する。
-        /// </summary>
-        /// <param name="path">ディレクトリのパス。</param>
-        /// <returns>偵察結果。</returns>
+        /// <inheritdoc/>
         public string Scout(string path)
         {
             // ファイル毎の調査
-            var report = new Report()
+            var report = new ScoutingResult()
             {
-                Columns = Methods.Keys.ToList<string>()
+                Columns = ScoutingMethod.Keys.ToList<string>()
             };
             AppendToReport(path, report);
 
@@ -52,7 +49,7 @@ namespace FileScout.Scouts
         /// </summary>
         /// <param name="path">ファイルまたはディレクトリのパス。</param>
         /// <param name="report">偵察結果。</param>
-        private void AppendToReport(string path, Report report)
+        private void AppendToReport(string path, IScoutingResult report)
         {
             // ファイルの調査
             if (File.Exists(path))
@@ -62,15 +59,15 @@ namespace FileScout.Scouts
                     return;
                 }
 
-                var clue = Clue.Generate(path, new ReadJEncEncodingDetector());
+                var clue = ScoutingClue.Generate(path, new ReadJEncEncodingDetector());
                 var results = new List<string>();
 
                 foreach (var header in report.Columns)
                 {
-                    var result = Methods[header].Do(clue);
+                    var result = ScoutingMethod[header].Do(clue);
                     results.Add(result);
                 }
-                report.Rows.Add(results);
+                report.Values.Add(results);
                 return;
             }
 

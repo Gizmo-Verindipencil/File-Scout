@@ -8,7 +8,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfVB6CommentRowsInProcedureScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             var text = NumberOfVB6ProcedureRowsScoutingMethod.GetProcedureRows(clue);
 

@@ -1,14 +1,15 @@
 ﻿using FileScout.Extensions;
+using FileScout.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FileScout
+namespace FileScout.DataObjects
 {
     /// <summary>
-    /// 偵察報告。
+    /// 偵察結果。
     /// </summary>
-    public class Report
+    public class ScoutingResult : IScoutingResult
     {
         /// <summary>
         /// 報告項目。
@@ -18,7 +19,7 @@ namespace FileScout
         /// <summary>
         /// 偵察結果。
         /// </summary>
-        public List<List<string>> Rows { get; set; } = new List<List<string>>();
+        public List<List<string>> Values { get; set; } = new List<List<string>>();
 
         /// <summary>
         /// CSV形式に変換する。
@@ -28,7 +29,7 @@ namespace FileScout
         {
             var builder = new StringBuilder();
             builder.AppendLine(string.Join(",", Columns.Select(x => x.Enclose("\""))));
-            foreach (var row in Rows)
+            foreach (var row in Values)
             {
                 builder.AppendLine(string.Join(",", row.Select(x => x.Enclose("\""))));
             }

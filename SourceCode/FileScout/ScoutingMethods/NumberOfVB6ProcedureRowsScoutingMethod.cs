@@ -11,7 +11,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfVB6ProcedureRowsScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             return GetProcedureRows(clue).Count().ToString();
         }
@@ -21,7 +21,7 @@ namespace FileScout.ScoutingMethods
         /// </summary>
         /// <param name="clue">手掛かり。</param>
         /// <returns>プロシージャの行。</returns>
-        public static IEnumerable<string> GetProcedureRows(Clue clue)
+        public static IEnumerable<string> GetProcedureRows(IScoutingClue clue)
         {
             // バイナリファイルの場合は終了
             if (clue.IsBinary) yield break;

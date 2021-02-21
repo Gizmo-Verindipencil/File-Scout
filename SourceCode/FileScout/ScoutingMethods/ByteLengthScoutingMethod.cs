@@ -1,5 +1,5 @@
-﻿using System.IO;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
+using System.IO;
 
 namespace FileScout.ScoutingMethods
 {
@@ -9,7 +9,7 @@ namespace FileScout.ScoutingMethods
     public class ByteLengthScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             var info = new FileInfo(clue.FilePath);
             return info.Length.ToString();

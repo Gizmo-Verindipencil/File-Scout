@@ -1,7 +1,7 @@
-﻿using System.IO;
-using System.Linq;
-using FileScout.Extensions;
+﻿using FileScout.Extensions;
 using FileScout.Interfaces;
+using System.IO;
+using System.Linq;
 
 namespace FileScout.ScoutingMethods
 {
@@ -11,7 +11,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfBlanksScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
-        public string Do(Clue clue)
+        public string Do(IScoutingClue clue)
         {
             // バイナリファイルの場合は処理なし
             if (clue.IsBinary) return "0";
