@@ -10,6 +10,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class FullScout : BaseScout
     {
+        /// <summary>
+        /// <see cref="FullScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public FullScout()
         {
             /// 実装されている全てのScoutの調査項目を含める

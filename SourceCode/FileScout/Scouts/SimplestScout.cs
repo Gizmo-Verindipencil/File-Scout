@@ -7,6 +7,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class SimplestScout : TextScout
     {
+        /// <summary>
+        /// <see cref="SimplestScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public SimplestScout()
         {
             /// 調査項目の定義

@@ -7,6 +7,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class ComUsageScout : TextScout
     {
+        /// <summary>
+        /// <see cref="ComUsageScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public ComUsageScout()
         {
             /// COM調査項目の追加

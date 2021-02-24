@@ -20,7 +20,7 @@ namespace FileScout.Scouts
         public Dictionary<string, IScoutingMethod> ScoutingMethod { get; set; } = new Dictionary<string, IScoutingMethod>();
 
         /// <summary>
-        /// コンストラクタ。
+        /// <see cref="BaseScout"/> クラスの新しいインスタンスを作成する。
         /// </summary>
         public BaseScout()
         {

@@ -8,23 +8,17 @@ namespace FileScout.DataObjects
     /// </summary>
     public class ScoutingClue : IScoutingClue
     {
-        /// <summary>
-        /// ファイルのパス。
-        /// </summary>
+        /// <inheritdoc/>
         public string FilePath { get; set; }
 
-        /// <summary>
-        /// ファイルのエンコード。
-        /// </summary>
+        /// <inheritdoc/>
         public Encoding Encoding { get; set; }
 
-        /// <summary>
-        /// バイナリファイルであるかどうかを示す。
-        /// </summary>
+        /// <inheritdoc/>
         public bool IsBinary { get => Encoding == null; }
 
         /// <summary>
-        /// 手掛かりを生成する。
+        /// <see cref="ScoutingClue"/> クラスの新しいインスタンスを作成する。
         /// </summary>
         /// <param name="filePath">ファイルパス。</param>
         /// <param name="encodingDetector">文字エンコード検出。</param>

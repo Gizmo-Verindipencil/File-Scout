@@ -11,20 +11,13 @@ namespace FileScout.DataObjects
     /// </summary>
     public class ScoutingResult : IScoutingResult
     {
-        /// <summary>
-        /// 報告項目。
-        /// </summary>
+        /// <inheritdoc/>
         public List<string> Columns { get; set; }
 
-        /// <summary>
-        /// 偵察結果。
-        /// </summary>
+        /// <inheritdoc/>
         public List<List<string>> Values { get; set; } = new List<List<string>>();
 
-        /// <summary>
-        /// CSV形式に変換する。
-        /// </summary>
-        /// <returns>CSV形式の文字列。</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             var builder = new StringBuilder();

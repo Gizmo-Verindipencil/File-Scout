@@ -7,6 +7,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class OldVbScout : TextScout
     {
+        /// <summary>
+        /// <see cref="OldVbScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public OldVbScout()
         {
             /// 調査項目の定義

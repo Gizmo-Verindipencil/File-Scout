@@ -7,6 +7,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class VolumeScout : BaseScout
     {
+        /// <summary>
+        /// <see cref="VolumeScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public VolumeScout()
         {
             /// 調査項目の定義

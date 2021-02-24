@@ -7,6 +7,9 @@ namespace FileScout.Scouts
     /// </summary>
     public class HashScout : BaseScout
     {
+        /// <summary>
+        /// <see cref="HashScout"/> クラスの新しいインスタンスを作成する。
+        /// </summary>
         public HashScout()
         {
             /// 調査項目の定義
