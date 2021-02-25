@@ -1,12 +1,12 @@
-﻿using System.IO;
+﻿using FileScout.Interfaces;
+using System.IO;
 using System.Linq;
-using FileScout.Interfaces;
 
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 行数の偵察手段。
+    /// ファイルの行数の調査手段を提供します。
     /// </summary>
     public class NumberOfRowsScoutingMethod : IScoutingMethod
     {

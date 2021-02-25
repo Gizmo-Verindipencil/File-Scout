@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// COMオブジェクト生成回数を調査する斥候。
+    /// COMオブジェクト生成回数の調査を提供します。
     /// </summary>
     public class ComUsageScout : TextScout
     {
         /// <summary>
-        /// <see cref="ComUsageScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="ComUsageScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public ComUsageScout()
         {

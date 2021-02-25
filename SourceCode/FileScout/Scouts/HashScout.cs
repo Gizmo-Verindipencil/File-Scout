@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// ファイルハッシュを調査する斥候。
+    /// ファイルハッシュを調査を提供します。
     /// </summary>
     public class HashScout : BaseScout
     {
         /// <summary>
-        /// <see cref="HashScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="HashScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public HashScout()
         {

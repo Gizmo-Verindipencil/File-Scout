@@ -6,12 +6,12 @@ using System.Reflection;
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// 全てを調査する斥候。
+    /// 実装されている全機能の調査を提供します。
     /// </summary>
     public class FullScout : BaseScout
     {
         /// <summary>
-        /// <see cref="FullScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="FullScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public FullScout()
         {
@@ -24,7 +24,7 @@ namespace FileScout.Scouts
             foreach (var type in types)
             {
                 // 抽象クラス・このクラスの場合は何もしない
-                if (type.IsAbstract | type == GetType() | !type.IsSubclassOf(typeof(IScout)))
+                if (type.IsAbstract | type == GetType() | type.GetInterface("IScout") != typeof(IScout))
                 {
                     continue;
                 }

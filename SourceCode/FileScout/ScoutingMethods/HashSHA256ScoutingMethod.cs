@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// ファイルハッシュ(SHA-256)の偵察手段。
+    /// ファイルハッシュ(SHA-256)の調査手段を提供します。
     /// </summary>
     public class HashSHA256ScoutingMethod : IScoutingMethod
     {

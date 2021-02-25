@@ -11,10 +11,11 @@ using System.Windows.Forms;
 namespace FileScout.UI
 {
     /// <summary>
-    /// 偵察選択画面。
+    /// 調査選択の画面を提供します。
     /// </summary>
     public partial class ChoosingScoutForm : Form
     {
+        // 調査
         private readonly Dictionary<string, IScout> _scout =
             Assembly.GetExecutingAssembly().GetTypes()
             .Where(x =>
@@ -24,8 +25,14 @@ namespace FileScout.UI
             )
             .ToDictionary(x => x.Name, x => (IScout)Activator.CreateInstance(x));
 
-        internal Dictionary<string, IScout> Scout => _scout;
+        /// <summary>
+        /// 利用可能な調査を取得または設定します。
+        /// </summary>
+        private Dictionary<string, IScout> Scout => _scout;
 
+        /// <summary>
+        /// <see cref="ChoosingScoutForm"/> クラスの新しいインスタンスを作成します。
+        /// </summary>
         public ChoosingScoutForm()
         {
             InitializeComponent();
@@ -34,6 +41,11 @@ namespace FileScout.UI
             ScoutDataGridView.DataSource = source;
         }
 
+        /// <summary>
+        /// 調査の選択が変更された際に、調査項目の一覧を更新します。
+        /// </summary>
+        /// <param name="sender">イベント発生元。</param>
+        /// <param name="e">イベント引数。</param>
         private void ScoutDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (_scout.Count() == 0 ||
@@ -54,6 +66,11 @@ namespace FileScout.UI
             MethodDataGridView.DataSource = source;
         }
 
+        /// <summary>
+        /// フォルダの選択ボタンが押下された場合の処理を行います。
+        /// </summary>
+        /// <param name="sender">イベント発生元。</param>
+        /// <param name="e">イベント引数。</param>
         private void SelectButton_Click(object sender, EventArgs e)
         {
             using (var dialog = new OpenFileDialog()
@@ -67,6 +84,11 @@ namespace FileScout.UI
             }
         }
 
+        /// <summary>
+        /// 調査の実行ボタンが押下された場合の処理を行います。
+        /// </summary>
+        /// <param name="sender">イベント発生元。</param>
+        /// <param name="e">イベント引数。</param>
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(TargetDirectoryTextBox.Text))
@@ -101,6 +123,10 @@ namespace FileScout.UI
             SaveResult(result);
         }
 
+        /// <summary>
+        /// 調査結果を出力します。
+        /// </summary>
+        /// <param name="content">出力内容。</param>
         private void SaveResult(string content)
         {
             var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";

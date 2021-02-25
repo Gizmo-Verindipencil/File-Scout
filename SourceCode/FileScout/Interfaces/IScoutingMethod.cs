@@ -1,15 +1,17 @@
 ﻿namespace FileScout.Interfaces
 {
     /// <summary>
-    /// 調査手段。
+    /// 調査手段を表します。
     /// </summary>
     public interface IScoutingMethod
     {
         /// <summary>
-        /// 偵察する。
+        /// 調査します。
         /// </summary>
-        /// <param name="clue">手掛かり。</param>
-        /// <returns>偵察結果。</returns>
+        /// <param name="clue">調査の入力内容。</param>
+        /// <returns>
+        /// 項目の調査結果を返します。
+        /// </returns>
         string Do(IScoutingClue clue);
     }
 }

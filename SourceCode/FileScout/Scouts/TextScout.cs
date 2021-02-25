@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// テキストファイルを調査する斥候。
+    /// テキストファイルの調査を提供します。
     /// </summary>
     public class TextScout : BaseScout
     {
         /// <summary>
-        /// <see cref="TextScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="TextScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public TextScout()
         {

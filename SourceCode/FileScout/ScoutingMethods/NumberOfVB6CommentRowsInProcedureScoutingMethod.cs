@@ -3,7 +3,7 @@
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6のプロシージャ内のコメント行数の偵察手段。
+    /// VB6のSUB/FUNCTIONプロシージャーに含まれるコメント行数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6CommentRowsInProcedureScoutingMethod : IScoutingMethod
     {

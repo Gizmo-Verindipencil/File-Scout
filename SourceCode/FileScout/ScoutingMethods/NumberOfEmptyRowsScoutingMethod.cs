@@ -1,12 +1,12 @@
-﻿using System.IO;
-using System.Linq;
-using FileScout.Extensions;
+﻿using FileScout.Extensions;
 using FileScout.Interfaces;
+using System.IO;
+using System.Linq;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 空行数の偵察手段。
+    /// ファイルの空行数の調査手段を提供します。
     /// </summary>
     public class NumberOfEmptyRowsScoutingMethod : IScoutingMethod
     {

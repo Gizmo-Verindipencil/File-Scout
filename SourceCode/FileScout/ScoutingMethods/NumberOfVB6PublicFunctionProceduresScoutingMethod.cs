@@ -1,11 +1,10 @@
-﻿using System;
+﻿using FileScout.Interfaces;
 using System.IO;
-using FileScout.Interfaces;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6のFunctionプロシージャ―（Public）数の偵察手段。
+    /// VB6のPUBLIC/FUNCTIONプロシージャー数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6PublicFunctionProceduresScoutingMethod : IScoutingMethod
     {

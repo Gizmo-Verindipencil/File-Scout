@@ -6,7 +6,7 @@ using System.Linq;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 行文字数の標準偏差の偵察手段。
+    /// 行文字数の標準偏差の調査手段を提供します。
     /// </summary>
     public class RowTextLengthStandardDeviationScoutingMethod : IScoutingMethod
     {

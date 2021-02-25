@@ -1,16 +1,16 @@
-﻿using System.IO;
+﻿using FileScout.Interfaces;
+using System.IO;
 using System.Text.RegularExpressions;
-using FileScout.Interfaces;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// COMオブジェクトのインスタンス生成回数の偵察手段。
+    /// COMオブジェクトのインスタンス生成回数の調査手段を提供します。
     /// </summary>
     public class NumberOfComInstanceCreationScoutingMethod : IScoutingMethod
     {
         /// <summary>
-        /// 偵察対象のCOMオブジェクトの名前。
+        /// 偵察対象のCOMオブジェクトの名前を取得または設定します。
         /// </summary>
         public string ComObjectName { get; set; }
 
@@ -21,11 +21,13 @@ namespace FileScout.ScoutingMethods
         }
         
         /// <summary>
-        /// コーディングにおける指定されたCOMオブジェクトのインスタンス生成を偵察する。
+        /// 指定されたCOMオブジェクトのインスタンス生成回数を調査します。
         /// </summary>
-        /// <param name="clue">手掛かり。</param>
+        /// <param name="clue">調査の入力内容。</param>
         /// <param name="comObjectName">COMオブジェクト名。</param>
-        /// <returns>偵察結果。</returns>
+        /// <returns>
+        /// <paramref name="comObjectName"/> で指定したCOMオブジェクトのインスタンス生成回数を返します。
+        /// </returns>
         protected string Do(IScoutingClue clue, string comObjectName)
         {
             // バイナリファイルの場合は処理なし
@@ -33,7 +35,7 @@ namespace FileScout.ScoutingMethods
 
             const string patternHead = @"\s*=\s*(WScript\.){0,1}CreateObject\(\s*""";
             const string patternTail = @"""\s*\)";
-            var pattern = patternHead + Regex.Escape(ComObjectName) + patternTail;
+            var pattern = patternHead + Regex.Escape(comObjectName) + patternTail;
 
             var rows = File.ReadLines(clue.FilePath, clue.Encoding);
             int count = 0;

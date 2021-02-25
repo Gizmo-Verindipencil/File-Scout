@@ -1,10 +1,10 @@
-﻿using System.IO;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
+using System.IO;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6の外部dll参照のプロシージャ（Private）数の偵察手段。
+    /// VB6の外部dll参照のPRIVATEプロシージャ数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6PrivateReferencesToProcedureImplementedInExternalFileScoutingMethod : IScoutingMethod
     {

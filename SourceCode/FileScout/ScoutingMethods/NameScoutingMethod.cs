@@ -4,7 +4,7 @@ using System.IO;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// ファイル名の偵察手段。
+    /// ファイル名の調査手段を提供します。
     /// </summary>
     public class NameScoutingMethod : IScoutingMethod
     {

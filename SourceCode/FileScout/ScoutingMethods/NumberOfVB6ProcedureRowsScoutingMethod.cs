@@ -6,7 +6,7 @@ using System.Linq;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6のプロシージャ行数の偵察手段。
+    /// VB6のSUB/FUNCTIONプロシージャーの行数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6ProcedureRowsScoutingMethod : IScoutingMethod
     {
@@ -17,10 +17,10 @@ namespace FileScout.ScoutingMethods
         }
 
         /// <summary>
-        /// Sub・Functionプロシージャの行を取得する。
+        /// SUB/FUNCTIONプロシージャーの行を取得する。
         /// </summary>
-        /// <param name="clue">手掛かり。</param>
-        /// <returns>プロシージャの行。</returns>
+        /// <param name="clue">調査の入力内容。</param>
+        /// <returns>プロシージャーの行。</returns>
         public static IEnumerable<string> GetProcedureRows(IScoutingClue clue)
         {
             // バイナリファイルの場合は終了
@@ -29,12 +29,6 @@ namespace FileScout.ScoutingMethods
             // 対象フラグ
             var diggingSub = false;
             var diggingFnc = false;
-
-            // 始端・終端の検知フラグ
-            var detectingSubHead = false;
-            var detectingFncHead = false;
-            var detectingSubTail = false;
-            var detectingFncTail = false;
 
             // 終端検知時の次行対象外フラグ
             var nextRowIsOutOfSub = false;
@@ -76,10 +70,12 @@ namespace FileScout.ScoutingMethods
                 // プロシージャの開始・終了を検知
                 var blanks = new char[] { ' ', '　', '\t' };
                 var rowHead = row.TrimStart(blanks);
-                detectingSubHead = IsStartingWithThose(rowHead, subHeads);
-                detectingFncHead = IsStartingWithThose(rowHead, fncHeads);
-                detectingSubTail = rowHead.ToLower().StartsWith(subTail);
-                detectingFncTail = rowHead.ToLower().StartsWith(fncTail);
+
+                // 始端・終端の検知フラグ
+                var detectingSubHead = IsStartingWithThose(rowHead, subHeads);
+                var detectingFncHead = IsStartingWithThose(rowHead, fncHeads);
+                var detectingSubTail = rowHead.ToLower().StartsWith(subTail);
+                var detectingFncTail = rowHead.ToLower().StartsWith(fncTail);
 
                 // 始端は対象に含む
                 if (!diggingSub && detectingSubHead) diggingSub = true;

@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// 古い時代のVisual Basicを調査する斥候。
+    /// 古い時代のVisual Basicファイルの調査を提供します。
     /// </summary>
     public class OldVbScout : TextScout
     {
         /// <summary>
-        /// <see cref="OldVbScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="OldVbScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public OldVbScout()
         {

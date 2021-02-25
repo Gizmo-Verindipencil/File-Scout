@@ -4,7 +4,7 @@ using System.IO;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// バイト長の偵察手段。
+    /// ファイルバイト長の調査手段を提供します。
     /// </summary>
     public class ByteLengthScoutingMethod : IScoutingMethod
     {

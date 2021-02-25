@@ -3,22 +3,22 @@
 namespace FileScout.Interfaces
 {
     /// <summary>
-    /// 偵察の手掛かり。
+    /// ファイル調査の入力内容を表します。
     /// </summary>
     public interface IScoutingClue
     {
         /// <summary>
-        /// ファイルのパス。
+        /// ファイルのパスを取得します。
         /// </summary>
         string FilePath { get; }
 
         /// <summary>
-        /// ファイルのエンコード。
+        /// ファイルの文字エンコードを取得します。
         /// </summary>
         Encoding Encoding { get; }
 
         /// <summary>
-        /// バイナリファイルであるかどうかを示す。
+        /// バイナリファイルの該当フラグを取得します。
         /// </summary>
         bool IsBinary { get; }
     }

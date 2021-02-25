@@ -6,7 +6,7 @@ using System.Linq;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 空白文字数の偵察手段。
+    /// ファイルの空白文字数の調査手段を提供します。
     /// </summary>
     public class NumberOfBlanksScoutingMethod : IScoutingMethod
     {
