@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// ファイル容量を調査する斥候。
+    /// ファイル容量の調査を提供します。
     /// </summary>
     public class VolumeScout : BaseScout
     {
         /// <summary>
-        /// <see cref="VolumeScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="VolumeScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public VolumeScout()
         {

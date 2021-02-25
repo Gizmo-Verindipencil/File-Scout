@@ -3,12 +3,12 @@
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// 最も簡素な斥候。
+    /// 最低限の調査を提供します。
     /// </summary>
     public class SimplestScout : TextScout
     {
         /// <summary>
-        /// <see cref="SimplestScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="SimplestScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public SimplestScout()
         {

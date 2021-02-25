@@ -5,7 +5,7 @@ using System.Linq;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 行毎の平均文字数の偵察手段。
+    /// 行文字数の平均の調査手段を提供します。
     /// </summary>
     public class RowTextLengthAverageScoutingMethod : IScoutingMethod
     {

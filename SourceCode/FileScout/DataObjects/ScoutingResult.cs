@@ -7,14 +7,18 @@ using System.Text;
 namespace FileScout.DataObjects
 {
     /// <summary>
-    /// 偵察結果。
+    /// 調査結果を提供します。
     /// </summary>
     public class ScoutingResult : IScoutingResult
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// 調査項目を取得または設定します。
+        /// </summary>
         public List<string> Columns { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// 調査項目の内容を取得または設定します。
+        /// </summary>
         public List<List<string>> Values { get; set; } = new List<List<string>>();
 
         /// <inheritdoc/>
@@ -22,9 +26,9 @@ namespace FileScout.DataObjects
         {
             var builder = new StringBuilder();
             builder.AppendLine(string.Join(",", Columns.Select(x => x.Enclose("\""))));
-            foreach (var row in Values)
+            foreach (var value in Values)
             {
-                builder.AppendLine(string.Join(",", row.Select(x => x.Enclose("\""))));
+                builder.AppendLine(string.Join(",", value.Select(x => x.Enclose("\""))));
             }
             return builder.ToString();
         }

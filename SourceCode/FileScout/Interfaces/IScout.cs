@@ -3,20 +3,22 @@
 namespace FileScout.Interfaces
 {
     /// <summary>
-    /// 斥候。
+    /// ファイルの調査を表します。
     /// </summary>
     interface IScout
     {
         /// <summary>
-        /// 調査手段。
+        /// 調査項目を取得します。
         /// </summary>
         Dictionary<string, IScoutingMethod> ScoutingMethod { get; }
 
         /// <summary>
-        /// 偵察する。
+        /// ファイルを調査します。
         /// </summary>
         /// <param name="path">ディレクトリのパス。</param>
-        /// <returns>偵察結果。</returns>
+        /// <returns>
+        /// ファイルの調査結果を返します。
+        /// </returns>
         string Scout(string path);
     }
 }

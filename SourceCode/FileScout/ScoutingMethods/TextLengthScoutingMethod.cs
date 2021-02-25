@@ -1,11 +1,11 @@
-﻿using System.IO;
+﻿using FileScout.Interfaces;
+using System.IO;
 using System.Linq;
-using FileScout.Interfaces;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 文字数の偵察手段。
+    /// ファイル文字数の調査手段を提供します。
     /// </summary>
     public class TextLengthScoutingMethod : IScoutingMethod
     {

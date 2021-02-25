@@ -5,7 +5,7 @@ using System.Linq;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6のプロシージャ空行数の偵察手段。
+    /// VB6のSUB/FUNCTIONプロシージャーに含まれる空行数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6EmptyRowsInProcedureScoutingMethod : IScoutingMethod
     {

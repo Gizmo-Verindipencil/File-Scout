@@ -6,7 +6,7 @@ using System.Text;
 namespace FileScout.EncodingDetectors
 {
     /// <summary>
-    /// <see cref="ReadJEnc"/>を利用した文字エンコード検出クラス。
+    /// <see cref="ReadJEnc"/>を利用した文字エンコードの検出を提供します。
     /// </summary>
     public class ReadJEncEncodingDetector : IEncodingDetector
     {

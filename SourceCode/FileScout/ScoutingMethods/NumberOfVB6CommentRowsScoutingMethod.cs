@@ -1,10 +1,10 @@
-﻿using System.IO;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
+using System.IO;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// VB6のコメント行数の偵察手段。
+    /// VB6のコメント行数の調査手段を提供します。
     /// </summary>
     public class NumberOfVB6CommentRowsScoutingMethod : IScoutingMethod
     {

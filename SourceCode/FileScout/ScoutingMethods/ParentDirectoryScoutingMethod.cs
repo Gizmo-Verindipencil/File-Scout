@@ -1,10 +1,10 @@
-﻿using System.IO;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
+using System.IO;
 
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// 親ディレクトリの偵察手段。
+    /// ファイルの親ディレクトリの調査手段を提供します。
     /// </summary>
     public class ParentDirectoryScoutingMethod : IScoutingMethod
     {

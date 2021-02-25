@@ -10,17 +10,17 @@ using System.Reflection;
 namespace FileScout.Scouts
 {
     /// <summary>
-    /// 斥候。
+    /// ファイルの調査を提供します。
     /// </summary>
     public abstract class BaseScout : IScout
     {
         /// <summary>
-        /// 調査手段。
+        /// 調査手段を取得または設定します。
         /// </summary>
         public Dictionary<string, IScoutingMethod> ScoutingMethod { get; set; } = new Dictionary<string, IScoutingMethod>();
 
         /// <summary>
-        /// <see cref="BaseScout"/> クラスの新しいインスタンスを作成する。
+        /// <see cref="BaseScout"/> クラスの新しいインスタンスを作成します。
         /// </summary>
         public BaseScout()
         {
@@ -45,10 +45,10 @@ namespace FileScout.Scouts
         }
 
         /// <summary>
-        /// ファイルまたはディレクトリを偵察する。
+        /// ファイルまたはディレクトリを調査します。
         /// </summary>
         /// <param name="path">ファイルまたはディレクトリのパス。</param>
-        /// <param name="report">偵察結果。</param>
+        /// <param name="report">調査結果。</param>
         private void AppendToReport(string path, IScoutingResult report)
         {
             // ファイルの調査
