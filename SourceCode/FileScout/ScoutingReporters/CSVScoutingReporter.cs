@@ -9,7 +9,7 @@ using System.Text;
 namespace FileScout.ScoutingReporters
 {
     /// <summary>
-    /// 偵察結果のCSV出力を提供します。
+    /// 調査結果のCSV出力を提供します。
     /// </summary>
     public class CSVScoutingReporter : IScoutingReporter
     {

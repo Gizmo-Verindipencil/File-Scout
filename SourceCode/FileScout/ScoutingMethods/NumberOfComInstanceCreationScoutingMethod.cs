@@ -10,7 +10,7 @@ namespace FileScout.ScoutingMethods
     public class NumberOfComInstanceCreationScoutingMethod : IScoutingMethod
     {
         /// <summary>
-        /// 偵察対象のCOMオブジェクトの名前を取得または設定します。
+        /// 調査対象のCOMオブジェクトの名前を取得または設定します。
         /// </summary>
         public string ComObjectName { get; set; }
 

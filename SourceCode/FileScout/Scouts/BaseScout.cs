@@ -95,7 +95,7 @@ namespace FileScout.Scouts
                 return;
             }
 
-            // 偵察対象パスの取得
+            // 調査対象パスの取得
             string[] files;
             string[] directories;
             try
@@ -108,13 +108,13 @@ namespace FileScout.Scouts
                 throw new PathTooLongException($"長すぎるパスです。\n{path}");
             }
 
-            // ディレクトリ内のファイルを偵察
+            // ディレクトリ内のファイルを調査
             foreach (var file in files)
             {
                 AppendToReport(file, report);
             }
 
-            // ディレクトリ内のディレクトリの偵察
+            // ディレクトリ内のディレクトリの調査
             foreach (var dir in directories)
             {
                 AppendToReport(dir, report);
