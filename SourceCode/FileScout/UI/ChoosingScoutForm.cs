@@ -92,11 +92,11 @@ namespace FileScout.UI
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
             dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
-            var result = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
+            var scoutingResult = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
             var reporter = new CSVScoutingReporter();
-            reporter.Report(result);
+            IReportingResult reportingResult = reporter.Report(scoutingResult);
 
-            MessageBox.Show("結果を保存しました。");
+            MessageBox.Show($"結果を保存しました。\r\n保存先：{reportingResult.OutputLocation}");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FileScout.Extensions;
 using FileScout.Interfaces;
+using FileScout.ReportingResults;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace FileScout.ScoutingReporters
     public class CSVScoutingReporter : IScoutingReporter
     {
         /// <inheritdoc/>
-        public void Report(IScoutingResult result)
+        public IReportingResult Report(IScoutingResult result)
         {
             // 報告内容の作成
             var report = new StringBuilder();
@@ -38,6 +39,12 @@ namespace FileScout.ScoutingReporters
             var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";
             var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             File.WriteAllText(Path.Combine(path, fileName), report.ToString(), Encoding.UTF8);
+
+            // 出力結果を返す
+            return new ReportingResult()
+            {
+                OutputLocation = path
+            };
         }
     }
 }

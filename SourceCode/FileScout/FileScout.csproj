@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IReportingResult.cs" />
     <Compile Include="Interfaces\IScoutingReporter.cs" />
     <Compile Include="Interfaces\IScoutingClue.cs" />
     <Compile Include="Interfaces\IScoutingResult.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataObjects\ScoutingResult.cs" />
+    <Compile Include="ReportingResults\ReportingResult.cs" />
     <Compile Include="ScoutingMethods\EncodingScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfComInstanceCreationScoutingMethod.cs" />
     <Compile Include="ScoutingMethods\NumberOfVB6CommentRowsInProcedureScoutingMethod.cs" />
