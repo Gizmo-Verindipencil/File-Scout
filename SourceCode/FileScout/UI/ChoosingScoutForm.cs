@@ -93,7 +93,7 @@ namespace FileScout.UI
         {
             dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
             var result = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
-            var reporter = new CsvScoutingReporter();
+            var reporter = new CSVScoutingReporter();
             reporter.Report(result);
 
             MessageBox.Show("結果を保存しました。");

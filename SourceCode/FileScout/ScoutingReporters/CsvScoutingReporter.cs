@@ -11,7 +11,7 @@ namespace FileScout.ScoutingReporters
     /// <summary>
     /// 偵察結果のCSV出力を提供します。
     /// </summary>
-    public class CsvScoutingReporter : IScoutingReporter
+    public class CSVScoutingReporter : IScoutingReporter
     {
         /// <inheritdoc/>
         public void Report(IScoutingResult result)
