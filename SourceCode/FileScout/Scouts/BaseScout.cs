@@ -2,6 +2,7 @@
 using FileScout.EncodingDetectors;
 using FileScout.Interfaces;
 using FileScout.ScoutingMethods;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,17 +32,40 @@ namespace FileScout.Scouts
         }
 
         /// <inheritdoc/>
-        public string Scout(string path)
+        public IScoutingResult Scout(string path)
         {
-            // ファイル毎の調査
-            var report = new ScoutingResult()
+            var result = new ScoutingResult()
             {
                 Columns = ScoutingMethod.Keys.ToList<string>()
             };
-            AppendToReport(path, report);
 
-            // 報告を通知
-            return report.ToString();
+            if (!Directory.Exists(path))
+            {
+                result.ErrorOccured = true;
+                result.ErrorMessage = $"対象ディレクトリが存在しません。\n{path}";
+                return result;
+            }
+
+            try
+            {
+                AppendToReport(path, result);
+
+                result.ErrorOccured = false;
+            }
+            catch (PathTooLongException ex)
+            {
+                result.ErrorOccured = true;
+                result.ErrorMessage = ex.Message;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.ErrorOccured = true;
+                result.ErrorMessage = $@"{ex.Message}\r\n{ex.StackTrace}";
+                return result;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -71,7 +95,7 @@ namespace FileScout.Scouts
                 return;
             }
 
-            // 偵察対象パスの取得
+            // 調査対象パスの取得
             string[] files;
             string[] directories;
             try
@@ -84,13 +108,13 @@ namespace FileScout.Scouts
                 throw new PathTooLongException($"長すぎるパスです。\n{path}");
             }
 
-            // ディレクトリ内のファイルを偵察
+            // ディレクトリ内のファイルを調査
             foreach (var file in files)
             {
                 AppendToReport(file, report);
             }
 
-            // ディレクトリ内のディレクトリの偵察
+            // ディレクトリ内のディレクトリの調査
             foreach (var dir in directories)
             {
                 AppendToReport(dir, report);

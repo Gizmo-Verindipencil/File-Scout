@@ -16,5 +16,15 @@ namespace FileScout.Interfaces
         /// 調査項目の内容を取得します。
         /// </summary>
         List<List<string>> Values { get; }
+
+        /// <summary>
+        /// 調査過程のエラー発生有無を取得します。
+        /// </summary>
+        bool ErrorOccured { get; }
+
+        /// <summary>
+        /// 調査過程のエラー情報を取得します。
+        /// </summary>
+        string ErrorMessage { get; }
     }
 }

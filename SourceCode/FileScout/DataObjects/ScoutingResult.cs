@@ -1,8 +1,5 @@
-﻿using FileScout.Extensions;
-using FileScout.Interfaces;
+﻿using FileScout.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace FileScout.DataObjects
 {
@@ -21,16 +18,14 @@ namespace FileScout.DataObjects
         /// </summary>
         public List<List<string>> Values { get; set; } = new List<List<string>>();
 
-        /// <inheritdoc/>
-        public override string ToString()
-        {
-            var builder = new StringBuilder();
-            builder.AppendLine(string.Join(",", Columns.Select(x => x.Enclose("\""))));
-            foreach (var value in Values)
-            {
-                builder.AppendLine(string.Join(",", value.Select(x => x.Enclose("\""))));
-            }
-            return builder.ToString();
-        }
+        /// <summary>
+        /// 調査過程のエラー発生有無を取得または設定します。
+        /// </summary>
+        public bool ErrorOccured { get; set; }
+
+        /// <summary>
+        /// 調査過程のエラー情報を取得または設定します。
+        /// </summary>
+        public string ErrorMessage { get; set; }
     }
 }

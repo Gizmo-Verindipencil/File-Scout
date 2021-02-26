@@ -1,11 +1,11 @@
 ﻿using FileScout.Interfaces;
+using FileScout.ScoutingReporters;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FileScout.UI
@@ -91,48 +91,12 @@ namespace FileScout.UI
         /// <param name="e">イベント引数。</param>
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
-            if (!Directory.Exists(TargetDirectoryTextBox.Text))
-            {
-                var message = $"対象ディレクトリが存在しません。\n{TargetDirectoryTextBox.Text}";
-                SaveResult(message);
-                return;
-            }
-                
             dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
+            var scoutingResult = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
+            var reporter = new CSVScoutingReporter();
+            IReportingResult reportingResult = reporter.Report(scoutingResult);
 
-            string result;
-            try
-            {
-                result = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
-            }
-            catch(PathTooLongException ex)
-            {
-                SaveResult(ex.Message);
-                return;
-            }
-            catch(Exception ex)
-            {
-                var builder = new StringBuilder();
-                builder.AppendLine(ex.Message);
-                builder.AppendLine();
-                builder.AppendLine(ex.StackTrace);
-                SaveResult(builder.ToString());
-                return;
-            }
-
-            SaveResult(result);
-        }
-
-        /// <summary>
-        /// 調査結果を出力します。
-        /// </summary>
-        /// <param name="content">出力内容。</param>
-        private void SaveResult(string content)
-        {
-            var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";
-            var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            File.WriteAllText(Path.Combine(path, fileName), content, Encoding.UTF8);
-            MessageBox.Show($"{fileName} に結果を作成しました。");
+            MessageBox.Show($"結果を保存しました。\r\n保存先：{reportingResult.OutputLocation}");
         }
     }
 }

@@ -19,6 +19,6 @@ namespace FileScout.Interfaces
         /// <returns>
         /// ファイルの調査結果を返します。
         /// </returns>
-        string Scout(string path);
+        IScoutingResult Scout(string path);
     }
 }
