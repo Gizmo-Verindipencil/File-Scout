@@ -20,7 +20,7 @@ namespace FileScout.ScoutingReporters
             // 報告内容の作成
             var report = new StringBuilder();
 
-            if (result.ErrorOccured)
+            if (result.ErrorOccurred)
             {
                 // エラーの出力
                 report.Append(result.ErrorMessage);

@@ -41,7 +41,7 @@ namespace FileScout.Scouts
 
             if (!Directory.Exists(path))
             {
-                result.ErrorOccured = true;
+                result.ErrorOccurred = true;
                 result.ErrorMessage = $"対象ディレクトリが存在しません。\n{path}";
                 return result;
             }
@@ -50,17 +50,17 @@ namespace FileScout.Scouts
             {
                 AppendToReport(path, result);
 
-                result.ErrorOccured = false;
+                result.ErrorOccurred = false;
             }
             catch (PathTooLongException ex)
             {
-                result.ErrorOccured = true;
+                result.ErrorOccurred = true;
                 result.ErrorMessage = ex.Message;
                 return result;
             }
             catch (Exception ex)
             {
-                result.ErrorOccured = true;
+                result.ErrorOccurred = true;
                 result.ErrorMessage = $@"{ex.Message}\r\n{ex.StackTrace}";
                 return result;
             }

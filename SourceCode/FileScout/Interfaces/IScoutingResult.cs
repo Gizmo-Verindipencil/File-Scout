@@ -20,7 +20,7 @@ namespace FileScout.Interfaces
         /// <summary>
         /// 調査過程のエラー発生有無を取得します。
         /// </summary>
-        bool ErrorOccured { get; }
+        bool ErrorOccurred { get; }
 
         /// <summary>
         /// 調査過程のエラー情報を取得します。
