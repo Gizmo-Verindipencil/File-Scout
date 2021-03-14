@@ -23,6 +23,7 @@ namespace FileScout.Scouts
             ScoutingMethod.Add(key: "関数(行数)", value: new NumberOfVB6ProcedureRowsScoutingMethod());
             ScoutingMethod.Add(key: "関数(空行数)", value: new NumberOfVB6EmptyRowsInProcedureScoutingMethod());
             ScoutingMethod.Add(key: "関数(コメント行)", value: new NumberOfVB6CommentRowsInProcedureScoutingMethod());
+            ScoutingMethod.Add(key: "タブスペース混在", value: new UsingBothTabsAndSpacesScoutingMethod());
         }
     }
 }
