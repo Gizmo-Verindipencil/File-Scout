@@ -6,7 +6,7 @@ namespace FileScout.ScoutingMethods
     /// <summary>
     /// ファイル拡張子の調査手段を提供します。
     /// </summary>
-    public class EncodingScoutingMethod : IScoutingMethod
+    public class ExtensionScoutingMethod : IScoutingMethod
     {
         /// <inheritdoc/>
         public string Do(IScoutingClue clue)
