@@ -1,4 +1,5 @@
-﻿using FileScout.Interfaces;
+﻿using FileScout.DataObjects;
+using FileScout.Interfaces;
 using FileScout.ScoutingReporters;
 using System;
 using System.Collections.Generic;
@@ -91,11 +92,21 @@ namespace FileScout.UI
         /// <param name="e">イベント引数。</param>
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
+            // 調査結果の取得
             dynamic obj = ScoutDataGridView.SelectedRows[0].DataBoundItem;
             var scoutingResult = Scout[obj.Name].Scout(TargetDirectoryTextBox.Text);
             var reporter = new CSVScoutingReporter();
-            IReportingResult reportingResult = reporter.Report(scoutingResult);
 
+            // 結果の出力
+            var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";
+            var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            IReportingResult reportingResult = reporter.Report(new ReportingClue()
+            {
+                ScoutingResult = scoutingResult,
+                OutputLocation = Path.Combine(path, fileName)
+            });
+
+            // 結果の通知
             MessageBox.Show($"結果を保存しました。\r\n保存先：{reportingResult.OutputLocation}");
         }
     }

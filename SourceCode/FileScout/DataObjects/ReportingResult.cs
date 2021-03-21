@@ -1,6 +1,6 @@
 ﻿using FileScout.Interfaces;
 
-namespace FileScout.ReportingResults
+namespace FileScout.DataObjects
 {
     /// <summary>
     /// 結果の出力結果を提供します。
