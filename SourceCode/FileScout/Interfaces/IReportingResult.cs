@@ -1,7 +1,7 @@
 ﻿namespace FileScout.Interfaces
 {
     /// <summary>
-    /// 結果の出力結果を表します。
+    /// 結果出力の出力結果を表します。
     /// </summary>
     public interface IReportingResult
     {

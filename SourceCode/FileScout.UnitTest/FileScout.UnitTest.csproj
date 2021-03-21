@@ -73,6 +73,7 @@
     <Compile Include="Tests\ScoutingMethods\EncodingScoutingMethodUnitTest.cs" />
     <Compile Include="Tests\ScoutingMethods\ByteLengthScoutingMethodUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ScoutingReporters\CSVScoutingReporterUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

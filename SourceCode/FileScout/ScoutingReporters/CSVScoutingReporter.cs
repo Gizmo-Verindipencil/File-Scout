@@ -1,10 +1,8 @@
-﻿using FileScout.Extensions;
+﻿using FileScout.DataObjects;
+using FileScout.Extensions;
 using FileScout.Interfaces;
-using FileScout.ReportingResults;
-using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
 namespace FileScout.ScoutingReporters
@@ -15,35 +13,34 @@ namespace FileScout.ScoutingReporters
     public class CSVScoutingReporter : IScoutingReporter
     {
         /// <inheritdoc/>
-        public IReportingResult Report(IScoutingResult result)
+        public IReportingResult Report(IReportingClue clue)
         {
             // 報告内容の作成
             var report = new StringBuilder();
 
-            if (result.ErrorOccurred)
+            if (clue.ScoutingResult.ErrorOccurred)
             {
                 // エラーの出力
-                report.Append(result.ErrorMessage);
+                report.Append(clue.ScoutingResult.ErrorMessage);
             }
             else
             {
                 // CSVの出力
-                report.AppendLine(string.Join(",", result.Columns.Select(x => x.Enclose("\""))));
-                foreach (var value in result.Values)
+                report.AppendLine(string.Join(",", clue.ScoutingResult.Columns.Select(x => x.Enclose("\""))));
+                foreach (var value in clue.ScoutingResult.Values)
                 {
                     report.AppendLine(string.Join(",", value.Select(x => x.Enclose("\""))));
                 }
             }
 
             // ファイルの出力
-            var fileName = $"result_{DateTime.Now:yyyyMMddhhmmss}.csv";
-            var path = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            File.WriteAllText(Path.Combine(path, fileName), report.ToString(), Encoding.UTF8);
+            
+            File.WriteAllText(clue.OutputLocation, report.ToString(), Encoding.UTF8);
 
             // 出力結果を返す
             return new ReportingResult()
             {
-                OutputLocation = path
+                OutputLocation = clue.OutputLocation
             };
         }
     }
