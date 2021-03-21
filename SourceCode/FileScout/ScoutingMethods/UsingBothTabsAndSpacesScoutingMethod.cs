@@ -4,7 +4,7 @@ using System.IO;
 namespace FileScout.ScoutingMethods
 {
     /// <summary>
-    /// タブとスペース混在の調査手段を提供します。
+    /// タブとスペース混在有無の調査手段を提供します。
     /// </summary>
     public class UsingBothTabsAndSpacesScoutingMethod : IScoutingMethod
     {
@@ -20,16 +20,19 @@ namespace FileScout.ScoutingMethods
             using (var stream = new FileStream(clue.FilePath, FileMode.Open))
             using (var reader = new StreamReader(stream, encoding: clue.Encoding))
             {
-                var line = reader.ReadLine();
-
-                // タブ・スペース使用の反映
-                if (!usingTab) usingTab = line.IndexOf('\t') > -1;
-                if (!usingSpace) usingSpace = line.IndexOf(' ') > -1;
-                
-                // タブ・スペース混在の場合は1を返す
-                if (usingTab && usingSpace)
+                while (!reader.EndOfStream)
                 {
-                    return "1";
+                    var line = reader.ReadLine();
+
+                    // タブ・スペース使用の反映
+                    if (!usingTab) usingTab = line.IndexOf('\t') > -1;
+                    if (!usingSpace) usingSpace = line.IndexOf(' ') > -1;
+
+                    // タブ・スペース混在の場合は1を返す
+                    if (usingTab && usingSpace)
+                    {
+                        return "1";
+                    }
                 }
             }
 

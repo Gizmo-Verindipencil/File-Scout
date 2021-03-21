@@ -2,3 +2,6 @@
 /SourceCode/packages/
 /SourceCode/FileScout/bin/
 /SourceCode/FileScout/obj/
+/SourceCode/FileScout.UnitTest/bin/
+/SourceCode/FileScout.UnitTest/obj/
+/SourceCode/TestResults/
