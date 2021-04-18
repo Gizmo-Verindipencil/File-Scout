@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\Extensions\StringExtensionsUnitTest.cs" />
     <Compile Include="Tests\ScoutingMethods\NumberOfVB6PublicReferencesToProcedureImplementedInExternalFileScoutingMethodUnitTest.cs" />
     <Compile Include="Tests\ScoutingMethods\NumberOfVB6PrivateReferencesToProcedureImplementedInExternalFileScoutingMethodUnitTest.cs" />
     <Compile Include="Tests\ScoutingMethods\NumberOfVB6PublicSubProceduresScoutingMethodUnitTest.cs" />
