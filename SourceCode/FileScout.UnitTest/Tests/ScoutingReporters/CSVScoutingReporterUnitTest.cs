@@ -100,10 +100,6 @@ namespace FileScout.UnitTest.Tests.ScoutingReporters
         [TestMethod]
         public void Test_Report_WhenScoutingIsFailed()
         {
-            // テスト前のファイル一覧を取得
-            var root = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var filesBeforeReporting = Directory.GetFiles(root);
-
             // インスタンス生成
             var scoutingResult = new ScoutingResult()
             {
